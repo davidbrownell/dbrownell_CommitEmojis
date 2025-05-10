@@ -54,7 +54,7 @@ dev = [
 path = "src/dbrownell_CommitEmojis/__init__.py"
 
 [tool.pytest.ini_options]
-addopts = "--verbose -vv --capture=no --cov=dbrownell_CommitEmojis --cov-fail-under=95.0"
+addopts = "--verbose -vv --capture=no --cov=dbrownell_CommitEmojis --cov-fail-under=95.0 --snapshot-warn-unused"
 
 [tool.ruff]
 line-length = 110
