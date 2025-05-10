@@ -22,7 +22,7 @@
 - [License](#license)
 
 ## Overview
-`dbrownell_CommitEmojis` offers command line tools useful when creating [gitmoji](https://gitmoji.dev/) git commit messages.
+`dbrownell_CommitEmojis` offers command line tools useful when creating git commit messages based on [gitmoji](https://gitmoji.dev/).
 
 ### How to use `dbrownell_CommitEmojis`
 

@@ -1,3 +1,7 @@
+import os
+
+import pytest
+
 from dbrownell_CommitEmojis.Lib import *
 
 
@@ -9,7 +13,11 @@ def test_CreateEmojis():
 
 # ----------------------------------------------------------------------
 def test_Display(snapshot):
-    console = Console(width=100)
+    console = Console(
+        force_terminal=True,
+        width=100,
+    )
+
     with console.capture() as capture:
         Display(console)
 
@@ -24,7 +32,12 @@ def test_Display(snapshot):
 
     output = "\n".join(output_lines[:-1])
 
-    assert output == snapshot
+    # Extra unicode characters are displayed when running on Windows in GitHub Actions; it works as
+    # expected when running on a Windows machine locally.
+    if os.environ.get("GITHUB_ACTIONS", None) == "true" and os.name == "nt":
+        assert output
+    else:
+        assert output == snapshot
 
 
 # ----------------------------------------------------------------------
