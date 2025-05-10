@@ -1,0 +1,323 @@
+[
+    {
+        "category": "Functionality",
+        "items": [
+            {
+                "code": ":chart_with_upwards_trend:",
+                "aliases": ["+analytics", "added_analytics"]
+            },
+            {
+                "code": ":wrench:",
+                "aliases": ["+config", "+configuration", "added_config", "added_configuration", "updated_config", "updated_configuration", "improved_config", "improved_configuration"]
+            },
+            {
+                "code": ":memo:",
+                "aliases": ["+doc", "+docs", "+documentation", "added_doc", "added_docs", "added_documentation"]
+            },
+            {
+                "code": ":triangular_flag_on_post:",
+                "aliases": ["+feature_flag", "+feature_flags", "added_feature_flag", "added_feature_flags", "updated_feature_flag", "updated_feature_flags", "-feature_flag", "-feature_flags", "removed_feature_flag", "removed_feature_flags"]
+            },
+            {
+                "code": ":tada:",
+                "aliases": ["+project", "started_project"]
+            },
+            {
+                "code": ":wheelchair:",
+                "aliases": ["accessibility", "+accessibility", "improved_accessibility"]
+            },
+            {
+                "code": ":globe_with_meridians:",
+                "aliases": ["i18n", "internationalization", "locale", "localization"]
+            },
+            {
+                "code": ":sparkles:",
+                "aliases": ["+feature", "+features", "added_feature", "added_features", "new_feature", "new_features"]
+            },
+            {
+                "code": ":airplane:",
+                "aliases": ["offline"]
+            }
+        ]
+    },
+    {
+        "category": "Security, Performance, and Correctness",
+        "items": [
+            {
+                "code": ":construction_worker:",
+                "aliases": ["+ci", "+build", "added_ci", "added_build"]
+            },
+            {
+                "code": ":bulb:",
+                "aliases": ["+comment", "+comments", "added_comment", "added_comments", "improved_comment", "improved_comments"]
+            },
+            {
+                "code": ":busts_in_silhouette:",
+                "aliases": ["+contributor", "+contributors", "added_contributor", "added_contributors"]
+            },
+            {
+                "code": ":page_facing_up:",
+                "aliases": ["+license", "+licenses", "added_license", "added_licenses", "updated_license", "updated_licenses"]
+            },
+            {
+                "code": ":speech_balloon:",
+                "aliases": ["improved_text"]
+            },
+            {
+                "code": ":white_check_mark:",
+                "aliases": ["+test", "+tests", "added_test", "added_tests"]
+            },
+            {
+                "code": ":bug:",
+                "aliases": ["-bug", "-bugs", "fixed_issue", "fixed_issues"]
+            },
+            {
+                "code": ":green_heart:",
+                "aliases": ["fixed_build"]
+            },
+            {
+                "code": ":rotating_light:",
+                "aliases": ["-warning", "-warnings", "fixed_warning", "fixed_warnings"]
+            },
+            {
+                "code": ":lock:",
+                "aliases": ["+security", "security"]
+            },
+            {
+                "code": ":pencil2:",
+                "aliases": ["typo", "typos"]
+            },
+            {
+                "code": ":zap:",
+                "aliases": ["perf", "performance"]
+            },
+            {
+                "code": ":rewind:",
+                "aliases": ["revert", "reverted"]
+            },
+            {
+                "code": ":alien:",
+                "aliases": ["external_api_change", "external_api_changes"]
+            }
+        ]
+    },
+    {
+        "category": "Refactor",
+        "items": [
+            {
+                "code": ":heavy_plus_sign:",
+                "aliases": ["+dependency", "+dependencies", "added_dependency", "added_dependencies"]
+            },
+            {
+                "code": ":heavy_minus_sign:",
+                "aliases": ["-dependency", "-dependencies", "removed_dependency", "removed_dependencies"]
+            },
+            {
+                "code": ":pushpin:",
+                "aliases": ["pinned_dependency", "pinned_dependencies"]
+            },
+            {
+                "code": ":loud_sound:",
+                "aliases": ["+log", "+logs", "+logging", "added_log", "added_logs", "added_logging", "updated_log", "updated_logs", "updated_logging", "improved_log", "improved_logs", "improved_logging"]
+            },
+            {
+                "code": ":mute:",
+                "aliases": ["-log", "-logs", "-logging", "removed_log", "removed_logs", "removed_logging"]
+            },
+            {
+                "code": ":arrow_up:",
+                "aliases": ["upgraded_dependency", "upgraded_dependencies"]
+            },
+            {
+                "code": ":arrow_down:",
+                "aliases": ["downgraded_dependency", "downgraded_dependencies"]
+            },
+            {
+                "code": ":art:",
+                "aliases": ["+file", "+files", "added_file", "added_files", "refactor"]
+            },
+            {
+                "code": ":fire:",
+                "aliases": ["-file", "-files", "removed_file", "removed_files"]
+            },
+            {
+                "code": ":truck:",
+                "aliases": ["renamed_file", "renamed_files"]
+            }
+        ]
+    },
+    {
+        "category": "Miscellaneous",
+        "items": [
+            {
+                "code": ":rocket:",
+                "aliases": ["deployed"]
+            },
+            {
+                "code": ":bricks:",
+                "aliases": ["infra", "infrastructure"]
+            },
+            {
+                "code": ":twisted_rightwards_arrows:",
+                "aliases": ["merge", "merged"]
+            },
+            {
+                "code": ":bookmark:",
+                "aliases": ["+tag", "added_tag", "tagged"]
+            },
+            {
+                "code": ":construction:",
+                "aliases": ["wip", "work_in_progress"]
+            }
+        ]
+    },
+    {
+        "category": "Intentionally Skipped",
+        "items": [
+            {
+                "code": ":test_tube:",
+                "aliases": []
+            },
+            {
+                "code": ":see_no_evil:",
+                "aliases": []
+            },
+            {
+                "code": ":egg:",
+                "aliases": []
+            },
+            {
+                "code": ":dizzy:",
+                "aliases": []
+            },
+            {
+                "code": ":bento:",
+                "aliases": []
+            },
+            {
+                "code": ":necktie:",
+                "aliases": []
+            },
+            {
+                "code": ":thread:",
+                "aliases": []
+            },
+            {
+                "code": ":safety_vest:",
+                "aliases": []
+            },
+            {
+                "code": ":package:",
+                "aliases": []
+            },
+            {
+                "code": ":hammer:",
+                "aliases": []
+            },
+            {
+                "code": ":stethoscope:",
+                "aliases": []
+            },
+            {
+                "code": ":closed_lock_with_key:",
+                "aliases": []
+            },
+            {
+                "code": ":seedling:",
+                "aliases": []
+            },
+            {
+                "code": ":camera_flash:",
+                "aliases": []
+            },
+            {
+                "code": ":lipstick:",
+                "aliases": []
+            },
+            {
+                "code": ":label:",
+                "aliases": []
+            },
+            {
+                "code": ":money_with_wings:",
+                "aliases": []
+            },
+            {
+                "code": ":goal_net:",
+                "aliases": []
+            },
+            {
+                "code": ":ambulance:",
+                "aliases": []
+            },
+            {
+                "code": ":monocle_face:",
+                "aliases": []
+            },
+            {
+                "code": ":wastebasket:",
+                "aliases": []
+            },
+            {
+                "code": ":technologist:",
+                "aliases": []
+            },
+            {
+                "code": ":mag:",
+                "aliases": []
+            },
+            {
+                "code": ":children_crossing:",
+                "aliases": []
+            },
+            {
+                "code": ":boom:",
+                "aliases": []
+            },
+            {
+                "code": ":building_construction:",
+                "aliases": []
+            },
+            {
+                "code": ":clown_face:",
+                "aliases": []
+            },
+            {
+                "code": ":card_file_box:",
+                "aliases": []
+            },
+            {
+                "code": ":alembic:",
+                "aliases": []
+            },
+            {
+                "code": ":recycle:",
+                "aliases": []
+            },
+            {
+                "code": ":coffin:",
+                "aliases": []
+            },
+            {
+                "code": ":adhesive_bandage:",
+                "aliases": []
+            },
+            {
+                "code": ":passport_control:",
+                "aliases": []
+            },
+            {
+                "code": ":iphone:",
+                "aliases": []
+            },
+            {
+                "code": ":poop:",
+                "aliases": []
+            },
+            {
+                "code": ":beers:",
+                "aliases": []
+            }
+        ]
+    }
+]

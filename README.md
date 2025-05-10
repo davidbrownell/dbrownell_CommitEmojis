@@ -22,10 +22,34 @@
 - [License](#license)
 
 ## Overview
-TODO: Complete this section
+`dbrownell_CommitEmojis` offers command line tools useful when creating [gitmoji](https://gitmoji.dev/) git commit messages.
 
-### How to use dbrownell_CommitEmojis
-TODO: Complete this section
+### How to use `dbrownell_CommitEmojis`
+
+### Display
+
+| Scenario | Command |
+| --- | --- |
+| Without installation | `uvx --from dbrownell_CommitEmojis commit_emojis Display` |
+| When installed as a package dependency | `uv run commit_emojis Display` |
+
+![Display screenshot](https://github.com/davidbrownell/dbrownell_CommitEmojis/blob/main/.github/Images/Display.png)
+
+### Transform
+
+| Scenario | Command |
+| --- | --- |
+| Without installation | `uvx --from dbrownell_CommitEmojis commit_emojis Transform <commit message>` |
+| When installed as a package dependency | `uv run commit_emojis Transform <commit message> ` |
+
+Examples for `<commit message>` are:
+
+| Input | Output |
+| --- | --- |
+| :+project: Initial checkin | 🎉 [+project] Initial checkin |
+| :+feature: A new feature was added | ✨ [+feature] A new feature was added |
+
+See [Display](#display) for a list of all supported emoji and alias values.
 
 <!-- Content below this delimiter will be copied to the generated README.md file. DO NOT REMOVE THIS COMMENT, as it will cause regeneration to fail. -->
 

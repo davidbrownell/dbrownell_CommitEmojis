@@ -1,0 +1,206 @@
+# serializer version: 1
+# name: test_Display
+  '''
+  [1;37mFunctionality[0m [92m──────────────────────────────────────────────────────────────────────────────────────[0m
+  
+  ┏━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  ┃[1m [0m[1mEmoji[0m[1m [0m┃[1m [0m[1m        Emoji Name         [0m[1m [0m┃[1m [0m[1mDescription                 [0m[1m [0m┃[1m [0m[1mAliases                    [0m[1m [0m┃
+  ┡━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+  │  📈   │  chart_with_upwards_trend   │ Add or update analytics or   │ +analytics, added_analytics │
+  │       │                             │ track code.                  │                             │
+  │  🔧   │           wrench            │ Add or update configuration  │ +config, +configuration,    │
+  │       │                             │ files.                       │ added_config,               │
+  │       │                             │                              │ added_configuration,        │
+  │       │                             │                              │ updated_config,             │
+  │       │                             │                              │ updated_configuration,      │
+  │       │                             │                              │ improved_config,            │
+  │       │                             │                              │ improved_configuration      │
+  │  📝   │            memo             │ Add or update documentation. │ +doc, +docs,                │
+  │       │                             │                              │ +documentation, added_doc,  │
+  │       │                             │                              │ added_docs,                 │
+  │       │                             │                              │ added_documentation         │
+  │  🚩   │   triangular_flag_on_post   │ Add, update, or remove       │ +feature_flag,              │
+  │       │                             │ feature flags.               │ +feature_flags,             │
+  │       │                             │                              │ added_feature_flag,         │
+  │       │                             │                              │ added_feature_flags,        │
+  │       │                             │                              │ updated_feature_flag,       │
+  │       │                             │                              │ updated_feature_flags,      │
+  │       │                             │                              │ -feature_flag,              │
+  │       │                             │                              │ -feature_flags,             │
+  │       │                             │                              │ removed_feature_flag,       │
+  │       │                             │                              │ removed_feature_flags       │
+  │  🎉   │            tada             │ Begin a project.             │ +project, started_project   │
+  │  ♿   │         wheelchair          │ Improve accessibility.       │ accessibility,              │
+  │       │                             │                              │ +accessibility,             │
+  │       │                             │                              │ improved_accessibility      │
+  │  🌐   │    globe_with_meridians     │ Internationalization and     │ i18n, internationalization, │
+  │       │                             │ localization.                │ locale, localization        │
+  │  ✨   │          sparkles           │ Introduce new features.      │ +feature, +features,        │
+  │       │                             │                              │ added_feature,              │
+  │       │                             │                              │ added_features,             │
+  │       │                             │                              │ new_feature, new_features   │
+  │   ✈   │          airplane           │ Improve offline support.     │ offline                     │
+  ├───────┼─────────────────────────────┼──────────────────────────────┼─────────────────────────────┤
+  │[1m [0m[1m     [0m[1m [0m│[1m [0m[1;3m   add ":<name>:" to the   [0m[1m [0m│[1m [0m[1m                            [0m[1m [0m│[1m [0m[1;3madd ":<alias>:" to the     [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m   commit message (e.g.    [0m[1m [0m│[1m                              [0m│[1m [0m[1;3mcommit message (e.g.       [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m         ":tada:")         [0m[1m [0m│[1m                              [0m│[1m [0m[1;3m":+project:")              [0m[1m [0m│
+  └───────┴─────────────────────────────┴──────────────────────────────┴─────────────────────────────┘
+  
+  [1;37mSecurity, Performance, and Correctness[0m [92m─────────────────────────────────────────────────────────────[0m
+  
+  ┏━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  ┃[1m [0m[1mEmoji[0m[1m [0m┃[1m [0m[1m        Emoji Name         [0m[1m [0m┃[1m [0m[1mDescription                 [0m[1m [0m┃[1m [0m[1mAliases                    [0m[1m [0m┃
+  ┡━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+  │  👷   │     construction_worker     │ Add or update CI build       │ +ci, +build, added_ci,      │
+  │       │                             │ system.                      │ added_build                 │
+  │  💡   │            bulb             │ Add or update comments in    │ +comment, +comments,        │
+  │       │                             │ source code.                 │ added_comment,              │
+  │       │                             │                              │ added_comments,             │
+  │       │                             │                              │ improved_comment,           │
+  │       │                             │                              │ improved_comments           │
+  │  👥   │     busts_in_silhouette     │ Add or update                │ +contributor,               │
+  │       │                             │ contributor(s).              │ +contributors,              │
+  │       │                             │                              │ added_contributor,          │
+  │       │                             │                              │ added_contributors          │
+  │  📄   │       page_facing_up        │ Add or update license.       │ +license, +licenses,        │
+  │       │                             │                              │ added_license,              │
+  │       │                             │                              │ added_licenses,             │
+  │       │                             │                              │ updated_license,            │
+  │       │                             │                              │ updated_licenses            │
+  │  💬   │       speech_balloon        │ Add or update text and       │ improved_text               │
+  │       │                             │ literals.                    │                             │
+  │  ✅   │      white_check_mark       │ Add, update, or pass tests.  │ +test, +tests, added_test,  │
+  │       │                             │                              │ added_tests                 │
+  │  🐛   │             bug             │ Fix a bug.                   │ -bug, -bugs, fixed_issue,   │
+  │       │                             │                              │ fixed_issues                │
+  │  💚   │         green_heart         │ Fix CI Build.                │ fixed_build                 │
+  │  🚨   │       rotating_light        │ Fix compiler / linter        │ -warning, -warnings,        │
+  │       │                             │ warnings.                    │ fixed_warning,              │
+  │       │                             │                              │ fixed_warnings              │
+  │  🔒   │            lock             │ Fix security or privacy      │ +security, security         │
+  │       │                             │ issues.                      │                             │
+  │   ✏   │           pencil2           │ Fix typos.                   │ typo, typos                 │
+  │  ⚡   │             zap             │ Improve performance.         │ perf, performance           │
+  │  ⏪   │           rewind            │ Revert changes.              │ revert, reverted            │
+  │  👽   │            alien            │ Update code due to external  │ external_api_change,        │
+  │       │                             │ API changes.                 │ external_api_changes        │
+  ├───────┼─────────────────────────────┼──────────────────────────────┼─────────────────────────────┤
+  │[1m [0m[1m     [0m[1m [0m│[1m [0m[1;3m   add ":<name>:" to the   [0m[1m [0m│[1m [0m[1m                            [0m[1m [0m│[1m [0m[1;3madd ":<alias>:" to the     [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m   commit message (e.g.    [0m[1m [0m│[1m                              [0m│[1m [0m[1;3mcommit message (e.g.       [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m         ":tada:")         [0m[1m [0m│[1m                              [0m│[1m [0m[1;3m":+project:")              [0m[1m [0m│
+  └───────┴─────────────────────────────┴──────────────────────────────┴─────────────────────────────┘
+  
+  [1;37mRefactor[0m [92m───────────────────────────────────────────────────────────────────────────────────────────[0m
+  
+  ┏━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  ┃[1m [0m[1mEmoji[0m[1m [0m┃[1m [0m[1m        Emoji Name         [0m[1m [0m┃[1m [0m[1mDescription                 [0m[1m [0m┃[1m [0m[1mAliases                    [0m[1m [0m┃
+  ┡━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+  │  ➕   │       heavy_plus_sign       │ Add a dependency.            │ +dependency, +dependencies, │
+  │       │                             │                              │ added_dependency,           │
+  │       │                             │                              │ added_dependencies          │
+  │  ➖   │      heavy_minus_sign       │ Remove a dependency.         │ -dependency, -dependencies, │
+  │       │                             │                              │ removed_dependency,         │
+  │       │                             │                              │ removed_dependencies        │
+  │  📌   │           pushpin           │ Pin dependencies to specific │ pinned_dependency,          │
+  │       │                             │ versions.                    │ pinned_dependencies         │
+  │  🔊   │         loud_sound          │ Add or update logs.          │ +log, +logs, +logging,      │
+  │       │                             │                              │ added_log, added_logs,      │
+  │       │                             │                              │ added_logging, updated_log, │
+  │       │                             │                              │ updated_logs,               │
+  │       │                             │                              │ updated_logging,            │
+  │       │                             │                              │ improved_log,               │
+  │       │                             │                              │ improved_logs,              │
+  │       │                             │                              │ improved_logging            │
+  │  🔇   │            mute             │ Remove logs.                 │ -log, -logs, -logging,      │
+  │       │                             │                              │ removed_log, removed_logs,  │
+  │       │                             │                              │ removed_logging             │
+  │   ⬆   │          arrow_up           │ Upgrade dependencies.        │ upgraded_dependency,        │
+  │       │                             │                              │ upgraded_dependencies       │
+  │   ⬇   │         arrow_down          │ Downgrade dependencies.      │ downgraded_dependency,      │
+  │       │                             │                              │ downgraded_dependencies     │
+  │  🎨   │             art             │ Improve structure / format   │ +file, +files, added_file,  │
+  │       │                             │ of the code.                 │ added_files, refactor       │
+  │  🔥   │            fire             │ Remove code or files.        │ -file, -files,              │
+  │       │                             │                              │ removed_file, removed_files │
+  │  🚚   │            truck            │ Move or rename resources     │ renamed_file, renamed_files │
+  │       │                             │ (e.g.: files, paths,         │                             │
+  │       │                             │ routes).                     │                             │
+  ├───────┼─────────────────────────────┼──────────────────────────────┼─────────────────────────────┤
+  │[1m [0m[1m     [0m[1m [0m│[1m [0m[1;3m   add ":<name>:" to the   [0m[1m [0m│[1m [0m[1m                            [0m[1m [0m│[1m [0m[1;3madd ":<alias>:" to the     [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m   commit message (e.g.    [0m[1m [0m│[1m                              [0m│[1m [0m[1;3mcommit message (e.g.       [0m[1m [0m│
+  │[1m       [0m│[1m [0m[1;3m         ":tada:")         [0m[1m [0m│[1m                              [0m│[1m [0m[1;3m":+project:")              [0m[1m [0m│
+  └───────┴─────────────────────────────┴──────────────────────────────┴─────────────────────────────┘
+  
+  [1;37mMiscellaneous[0m [92m──────────────────────────────────────────────────────────────────────────────────────[0m
+  
+  ┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  ┃[1m [0m[1m Emoji  [0m[1m [0m┃[1m [0m[1m        Emoji Name        [0m[1m [0m┃[1m [0m[1mDescription                [0m[1m [0m┃[1m [0m[1mAliases                   [0m[1m [0m┃
+  ┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+  │    🚀    │           rocket           │ Deploy stuff.               │ deployed                   │
+  │ :bricks: │           bricks           │ Infrastructure related      │ infra, infrastructure      │
+  │          │                            │ changes.                    │                            │
+  │    🔀    │ twisted_rightwards_arrows  │ Merge branches.             │ merge, merged              │
+  │    🔖    │          bookmark          │ Release / Version tags.     │ +tag, added_tag, tagged    │
+  │    🚧    │        construction        │ Work in progress.           │ wip, work_in_progress      │
+  ├──────────┼────────────────────────────┼─────────────────────────────┼────────────────────────────┤
+  │[1m [0m[1m        [0m[1m [0m│[1m [0m[1;3m  add ":<name>:" to the   [0m[1m [0m│[1m [0m[1m                           [0m[1m [0m│[1m [0m[1;3madd ":<alias>:" to the    [0m[1m [0m│
+  │[1m          [0m│[1m [0m[1;3m   commit message (e.g.   [0m[1m [0m│[1m                             [0m│[1m [0m[1;3mcommit message (e.g.      [0m[1m [0m│
+  │[1m          [0m│[1m [0m[1;3m        ":tada:")         [0m[1m [0m│[1m                             [0m│[1m [0m[1;3m":+project:")             [0m[1m [0m│
+  └──────────┴────────────────────────────┴─────────────────────────────┴────────────────────────────┘
+  
+  [1;37mIntentionally Skipped[0m [92m──────────────────────────────────────────────────────────────────────────────[0m
+  
+  ┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  ┃[1m [0m[1m    Emoji     [0m[1m [0m┃[1m [0m[1m              Emoji Name              [0m[1m [0m┃[1m [0m[1mDescription                           [0m[1m [0m┃
+  ┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+  │       🧪       │               test_tube                │ Add a failing test.                    │
+  │       🙈       │              see_no_evil               │ Add or update a .gitignore file.       │
+  │       🍳       │                  egg                   │ Add or update an easter egg.           │
+  │       💫       │                 dizzy                  │ Add or update animations and           │
+  │                │                                        │ transitions.                           │
+  │       🍱       │                 bento                  │ Add or update assets.                  │
+  │       👔       │                necktie                 │ Add or update business logic.          │
+  │       🧵       │                 thread                 │ Add or update code related to          │
+  │                │                                        │ multithreading or concurrency.         │
+  │       🦺       │              safety_vest               │ Add or update code related to          │
+  │                │                                        │ validation.                            │
+  │       📦       │                package                 │ Add or update compiled files or        │
+  │                │                                        │ packages.                              │
+  │       🔨       │                 hammer                 │ Add or update development scripts.     │
+  │       🩺       │              stethoscope               │ Add or update healthcheck.             │
+  │       🔐       │          closed_lock_with_key          │ Add or update secrets.                 │
+  │       🌱       │                seedling                │ Add or update seed files.              │
+  │ :camera_flash: │              camera_flash              │ Add or update snapshots.               │
+  │       💄       │                lipstick                │ Add or update the UI and style files.  │
+  │       🏷        │                 label                  │ Add or update types.                   │
+  │       💸       │            money_with_wings            │ Add sponsorships or money related      │
+  │                │                                        │ infrastructure.                        │
+  │       🥅       │                goal_net                │ Catch errors.                          │
+  │       🚑       │               ambulance                │ Critical hotfix.                       │
+  │ :monocle_face: │              monocle_face              │ Data exploration/inspection.           │
+  │       🗑        │              wastebasket               │ Deprecate code that needs to be        │
+  │                │                                        │ cleaned up.                            │
+  │ :technologist: │              technologist              │ Improve developer experience.          │
+  │       🔍       │                  mag                   │ Improve SEO.                           │
+  │       🚸       │           children_crossing            │ Improve user experience / usability.   │
+  │       💥       │                  boom                  │ Introduce breaking changes.            │
+  │       🏗        │         building_construction          │ Make architectural changes.            │
+  │       🤡       │               clown_face               │ Mock things.                           │
+  │       🗃        │             card_file_box              │ Perform database related changes.      │
+  │       ⚗        │                alembic                 │ Perform experiments.                   │
+  │       ♻        │                recycle                 │ Refactor code.                         │
+  │       ⚰        │                 coffin                 │ Remove dead code.                      │
+  │       🩹       │            adhesive_bandage            │ Simple fix for a non-critical issue.   │
+  │       🛂       │            passport_control            │ Work on code related to authorization, │
+  │                │                                        │ roles and permissions.                 │
+  │       📱       │                 iphone                 │ Work on responsive design.             │
+  │       💩       │                  poop                  │ Write bad code that needs to be        │
+  │                │                                        │ improved.                              │
+  │       🍻       │                 beers                  │ Write code drunkenly.                  │
+  ├────────────────┼────────────────────────────────────────┼────────────────────────────────────────┤
+  │[1m [0m[1m              [0m[1m [0m│[1m [0m[1;3m add ":<name>:" to the commit message [0m[1m [0m│[1m [0m[1m                                      [0m[1m [0m│
+  │[1m                [0m│[1m [0m[1;3m           (e.g. ":tada:")            [0m[1m [0m│[1m                                        [0m│
+  └────────────────┴────────────────────────────────────────┴────────────────────────────────────────┘
+  
+  '''
+# ---

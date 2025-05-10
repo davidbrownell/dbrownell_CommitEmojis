@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "required": ["gitmojis"],
+  "properties": {
+    "gitmojis": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "emoji",
+          "entity",
+          "code",
+          "description",
+          "name",
+          "semver"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "entity": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emoji": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "semver": {
+            "enum": ["major", "minor", "patch", null]
+          }
+        }
+      }
+    }
+  }
+}
