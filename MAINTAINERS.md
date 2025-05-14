@@ -6,9 +6,7 @@ The following individuals are responsible for maintaining this project. Feel fre
 
 | Maintainer        | GitHub Username   |
 | ----------------- | ----------------- |
-| Alice Smith       | `@alice`          |
-| Bob Johnson       | `@bob`            |
-| Carol Williams    | `@carol`          |
+| David Brownell    | `@davidbrownell`  |
 
 ## Maintainer Responsibilities
 

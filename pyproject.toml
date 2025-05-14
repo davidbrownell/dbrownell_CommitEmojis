@@ -1,9 +1,9 @@
 [project]
 name = "dbrownell-CommitEmojis"
-description = "Add your description here"
+description = "Tools that enhance the gitmoji (https://gitmoji.dev/) experience."
 readme = "README.md"
 authors = [
-    { name = "David Brownell", email = "db@davidbrownell.com" }
+    { name = "David Brownell", email = "github@davidbrownell.com" }
 ]
 requires-python = ">= 3.10"
 dependencies = [
