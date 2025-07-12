@@ -61,11 +61,13 @@ See [Display](#display) for a list of all supported emoji and alias values.
 | Via [pip](https://pip.pypa.io/en/stable/) | `pip install dbrownell_CommitEmojis` |
 
 ### Verifying Signed Artifacts
-Artifacts are signed and validated using [py-minisign](https://github.com/x13a/py-minisign) and the public key in the file `./minisign_key.pub`.
+Artifacts are signed and verified using [py-minisign](https://github.com/x13a/py-minisign) and the public key in the file `./minisign_key.pub`.
 
 To verify that an artifact is valid, visit [the latest release](https://github.com/davidbrownell/dbrownell_CommitEmojis/releases/latest) and download the `.minisign` signature file that corresponds to the artifact, then run the following command, replacing `<filename>` with the name of the artifact to be verified:
 
-`uv run --with py-minisign python -c "import minisign; minisign.PublicKey.from_file('minisign_key.pub').verify_file('<filename>')"`
+```shell
+uv run --with py-minisign python -c "import minisign; minisign.PublicKey.from_file('minisign_key.pub').verify_file('<filename>'); print('The file has been verified.')"
+```
 
 ## Development
 Please visit [Contributing](https://github.com/davidbrownell/dbrownell_CommitEmojis/blob/main/CONTRIBUTING.md) and [Development](https://github.com/davidbrownell/dbrownell_CommitEmojis/blob/main/DEVELOPMENT.md) for information on contributing to this project.
