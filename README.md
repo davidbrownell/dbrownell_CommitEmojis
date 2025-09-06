@@ -4,7 +4,7 @@
 **Package:**
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/dbrownell_CommitEmojis?color=dark-green)](https://pypi.org/project/dbrownell_CommitEmojis/)
 [![PyPI - Version](https://img.shields.io/pypi/v/dbrownell_CommitEmojis?color=dark-green)](https://pypi.org/project/dbrownell_CommitEmojis/)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/dbrownell_CommitEmojis)](https://pypistats.org/packages/dbrownell_CommitEmojis)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/dbrownell_CommitEmojis)](https://pypistats.org/packages/dbrownell-commitemojis)
 
 **Development:**
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
