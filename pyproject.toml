@@ -14,15 +14,18 @@ authors = [
 ]
 requires-python = ">= 3.10"
 dependencies = [
-    "dbrownell-common>=0.14.6",
-    "rich>=13.9.4",
-    "typer>=0.15.3",
+    "dbrownell-common>=0.16.0",
+    "pyperclip>=1.11.0",
+    "rich>=14.1.0",
+    "textual>=6.1.0",
+    "typer>=0.19.2",
 ]
 classifiers = [
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.11",
@@ -51,14 +54,18 @@ dev = [
     "pre-commit>=4.2.0",
     "py-minisign>=0.12.0",
     "pytest>=8.4.1",
+    "pytest-asyncio>=1.2.0",
     "pytest-cov>=6.2.1",
+    "pytest-textual-snapshot>=1.0.0",
     "requests>=2.32.4",
     "ruff>=0.12.3",
     "syrupy>=4.9.1",
+    "textual-dev>=1.7.0",
 ]
 
 [tool.pytest.ini_options]
 addopts = "--verbose -vv --capture=no --cov=dbrownell_CommitEmojis --cov-report term --cov-report xml:coverage.xml --cov-fail-under=95.0 --snapshot-warn-unused"
+asyncio_mode = "auto"
 
 [tool.ruff]
 line-length = 110

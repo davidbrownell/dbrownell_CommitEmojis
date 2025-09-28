@@ -2,6 +2,7 @@
 
 import sys
 
+from enum import Enum
 from pathlib import Path
 from typing import Annotated
 
@@ -10,7 +11,8 @@ import typer
 from dbrownell_Common.Streams.DoneManager import DoneManager, Flags as DoneManagerFlags
 from typer.core import TyperGroup
 
-from .Lib import Display as DisplayImpl, Transform as TransformImpl
+from dbrownell_CommitEmojis.Lib import Display as DisplayImpl, Transform as TransformImpl
+from dbrownell_CommitEmojis.MainApp import MainApp
 
 
 # ----------------------------------------------------------------------
@@ -30,8 +32,25 @@ app = typer.Typer(
 
 
 # ----------------------------------------------------------------------
-@app.command("Display", no_args_is_help=False)
-def Display(
+class Command(Enum):
+    """Enum values to invoke legacy functionality."""
+
+    UX = "UX"
+    LegacyDisplay = "Display"
+    LegacyTransform = "Transform"
+
+
+# ----------------------------------------------------------------------
+@app.command("EntryPoint", help=__doc__, no_args_is_help=False)
+def EntryPoint(
+    command: Annotated[
+        Command,
+        typer.Argument(help="Command to invoke."),
+    ] = "UX",
+    message_or_filename: Annotated[
+        str,
+        typer.Argument(..., help="Message to transform (or filename that contains the message)."),
+    ] = "",
     verbose: Annotated[  # noqa: FBT002
         bool,
         typer.Option("--verbose", help="Write verbose information to the terminal."),
@@ -40,6 +59,28 @@ def Display(
         bool,
         typer.Option("--debug", help="Write debug information to the terminal."),
     ] = False,
+) -> None:
+    """Entry point for the application."""
+
+    if command == Command.LegacyDisplay:
+        _Display(verbose=verbose, debug=debug)
+        return
+
+    if command == Command.LegacyTransform:
+        _Transform(message_or_filename)
+        return
+
+    assert command == Command.UX, command
+    _Ux(message_or_filename)
+
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+def _Display(
+    *,
+    verbose: bool,
+    debug: bool,
 ) -> None:
     """Display supported emojis."""
 
@@ -50,13 +91,7 @@ def Display(
 
 
 # ----------------------------------------------------------------------
-@app.command("Transform", no_args_is_help=True)
-def Transform(
-    message_or_filename: Annotated[
-        str,
-        typer.Argument(..., help="Message to transform (or filename that contains the message)."),
-    ],
-) -> None:
+def _Transform(message_or_filename: str) -> None:
     """Transform a message that contains emoji text placeholders."""
 
     potential_path = Path(message_or_filename)
@@ -67,6 +102,24 @@ def Transform(
         message = message_or_filename
 
     sys.stdout.write(TransformImpl(message))
+
+
+# ----------------------------------------------------------------------
+def _Ux(message_or_filename: str) -> None:
+    """Run the UX."""
+
+    message: str | None = None
+
+    potential_path = Path(message_or_filename)
+    if potential_path.is_file():
+        with potential_path.open(encoding="UTF-8") as f:
+            message = f.read()
+    else:
+        message = message_or_filename
+
+    message = message or None
+
+    MainApp(message).run()
 
 
 # ----------------------------------------------------------------------
