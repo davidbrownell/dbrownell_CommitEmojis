@@ -1,4 +1,5 @@
 from pathlib import Path
+from unittest.mock import Mock
 
 from dbrownell_CommitEmojis import __main__
 from typer.testing import CliRunner
@@ -97,3 +98,42 @@ class TestTransform:
         result = CliRunner().invoke(__main__.app, ["Transform", str(Path(__file__))])
         assert result.exit_code == 0, result.output
         assert result.stdout == "Mocked value", result.output
+
+
+# ----------------------------------------------------------------------
+class TestUx:
+    # ----------------------------------------------------------------------
+    def test_Standard(self, monkeypatch):
+        main_app_mock = Mock()
+
+        monkeypatch.setattr(__main__, "MainApp", main_app_mock)
+
+        result = CliRunner().invoke(__main__.app, [])
+        assert result.exit_code == 0, result.output
+
+        assert main_app_mock.call_count == 1, result.output
+        assert main_app_mock.call_args == ((None,), {}), result.output
+
+    # ----------------------------------------------------------------------
+    def test_WithString(self, monkeypatch):
+        main_app_mock = Mock()
+
+        monkeypatch.setattr(__main__, "MainApp", main_app_mock)
+
+        result = CliRunner().invoke(__main__.app, ["UX", "This is a test"])
+        assert result.exit_code == 0, result.output
+
+        assert main_app_mock.call_count == 1, result.output
+        assert main_app_mock.call_args == (("This is a test",), {}), result.output
+
+    # ----------------------------------------------------------------------
+    def test_WithFile(self, monkeypatch):
+        main_app_mock = Mock()
+
+        monkeypatch.setattr(__main__, "MainApp", main_app_mock)
+
+        result = CliRunner().invoke(__main__.app, ["UX", str(Path(__file__))])
+        assert result.exit_code == 0, result.output
+
+        assert main_app_mock.call_count == 1, result.output
+        assert len(main_app_mock.call_args.args[0]) > 100, result.output
