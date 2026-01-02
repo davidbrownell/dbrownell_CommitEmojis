@@ -37,6 +37,10 @@
             {
                 "code": ":airplane:",
                 "aliases": ["offline"]
+            },
+            {
+                "code": ":t-rex:",
+                "aliases": ["back-compat"]
             }
         ]
     },
@@ -134,7 +138,7 @@
             },
             {
                 "code": ":art:",
-                "aliases": ["+file", "+files", "added_file", "added_files", "refactor"]
+                "aliases": ["refactor", "+file", "+files", "added_file", "added_files"]
             },
             {
                 "code": ":fire:",
