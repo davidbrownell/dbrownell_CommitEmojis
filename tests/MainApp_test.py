@@ -46,6 +46,7 @@ def test_CopyButton(snap_compare):
     # ----------------------------------------------------------------------
     async def Setup(pilot) -> None:
         await pilot.click(Button)
+        await pilot.pause(0.5)
 
     # ----------------------------------------------------------------------
 
