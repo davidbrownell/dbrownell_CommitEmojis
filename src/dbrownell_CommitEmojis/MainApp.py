@@ -126,6 +126,10 @@ class MainApp(App):
 
     # ----------------------------------------------------------------------
     def on_data_table_row_selected(self, event: DataTable.RowSelected) -> None:  # noqa: D102
+        assert event is not None
+        assert event.row_key is not None
+        assert isinstance(event.row_key.value, tuple)
+
         emoji, alias = event.row_key.value  # type: ignore[attr-defined, misc]
 
         match = self._commit_regex.match(self._commit_message_input.value)
@@ -196,7 +200,7 @@ class MainApp(App):
                         item.name,
                         item.description,
                         ", ".join(item.aliases),
-                        key=(item.emoji, item.aliases[0] if item.aliases else ""),  # type: ignore[arg-type]
+                        key=(item.emoji, item.aliases[0] if item.aliases else ""),  # ty: ignore[invalid-argument-type]
                     )
 
                 collapsible.children[1].mount(dt)

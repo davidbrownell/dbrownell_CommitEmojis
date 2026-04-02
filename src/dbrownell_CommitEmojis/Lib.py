@@ -157,7 +157,7 @@ def Display(
                 table.add_column(
                     col_name,
                     footer or "",
-                    justify=justify,
+                    justify=justify,  # ty: ignore[invalid-argument-type]
                 )
 
             for item in items:
@@ -258,5 +258,5 @@ def _YieldConsole(
         return
 
     with done_manager_or_console.YieldStdout() as stdout_stream:
-        console = Console(file=stdout_stream.stream)
+        console = Console(file=stdout_stream.stream)  # ty: ignore[invalid-argument-type]
         yield console
