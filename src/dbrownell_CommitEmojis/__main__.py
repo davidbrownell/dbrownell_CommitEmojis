@@ -46,7 +46,7 @@ def EntryPoint(
     command: Annotated[
         Command,
         typer.Argument(help="Command to invoke."),
-    ] = "UX",
+    ] = Command.UX,
     message_or_filename: Annotated[
         str,
         typer.Argument(..., help="Message to transform (or filename that contains the message)."),

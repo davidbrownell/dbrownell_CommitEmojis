@@ -45,7 +45,7 @@ CommitEmojis = "dbrownell_CommitEmojis:__main__.app"
 commit_emojis = "dbrownell_CommitEmojis:__main__.app"
 
 [build-system]
-requires = ["uv_build>=0.8.15,<0.9.0"]
+requires = ["uv_build>=0.11.3,<0.12.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
@@ -61,6 +61,7 @@ dev = [
     "ruff>=0.12.3",
     "syrupy>=4.9.1",
     "textual-dev>=1.7.0",
+    "ty>=0.0.27",
 ]
 
 [tool.pytest.ini_options]
