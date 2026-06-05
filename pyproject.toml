@@ -45,7 +45,7 @@ CommitEmojis = "dbrownell_CommitEmojis:__main__.app"
 commit_emojis = "dbrownell_CommitEmojis:__main__.app"
 
 [build-system]
-requires = ["uv_build>=0.11.3,<0.12.0"]
+requires = ["uv_build>=0.11.19,<0.12.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
@@ -84,6 +84,8 @@ ignore = [
     "D105", # Missing docstring in magic method
     "D107", # Missing docstring in `__init__` method
     "D202", # No blank lines allowed after function docstring
+    "D203", # Incorrect blank line before class docstring
+    "D213", # Multi line summary second line
     "E501", # Line too long
     "FIX002", # Line contains TODO, consider resolving the issue
     "I001", # Import block is un-sorted or un-formatted
