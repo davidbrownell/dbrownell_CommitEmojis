@@ -2,7 +2,7 @@ import platform
 
 import pytest
 
-from textual.widgets import Button
+from textual.widgets import Button, Label
 
 from dbrownell_CommitEmojis.MainApp import MainApp
 
@@ -83,3 +83,50 @@ def test_AddMultipleEmojis(snap_compare):
         terminal_size=(200, 60),
         press=["tab", "tab", "tab", "down", "down", "enter", "down", "enter", "enter"],
     )
+
+
+# ----------------------------------------------------------------------
+@pytest.mark.asyncio
+async def test_CharCounterUpdates():
+    app = MainApp(None)
+    async with app.run_test() as pilot:
+        char_counter = app.query_one("#char_counter", Label)
+        assert str(char_counter.render()) == "0"
+
+        app._commit_message_input.value = "test"
+        await pilot.pause()
+        assert str(char_counter.render()) == "4"
+
+
+# ----------------------------------------------------------------------
+@pytest.mark.asyncio
+async def test_CharCounterWithInitialMessage():
+    message = "Initial message"
+    app = MainApp(message)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        char_counter = app.query_one("#char_counter", Label)
+        assert str(char_counter.render()) == str(len(message))
+
+
+# ----------------------------------------------------------------------
+@pytest.mark.asyncio
+async def test_CharCounterOverLimit():
+    app = MainApp(None)
+    async with app.run_test() as pilot:
+        char_counter = app.query_one("#char_counter", Label)
+
+        # Under limit - no over_limit class
+        app._commit_message_input.value = "x" * 70
+        await pilot.pause()
+        assert "over_limit" not in char_counter.classes
+
+        # Over limit - has over_limit class
+        app._commit_message_input.value = "x" * 71
+        await pilot.pause()
+        assert "over_limit" in char_counter.classes
+
+        # Back under limit - class removed
+        app._commit_message_input.value = "x" * 50
+        await pilot.pause()
+        assert "over_limit" not in char_counter.classes

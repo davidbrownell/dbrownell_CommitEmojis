@@ -21,6 +21,17 @@
     #text_input {
         width: 1fr;
     }
+
+    #char_counter {
+        padding-top: 1;
+        padding-right: 1;
+        min-width: 4;
+        text-align: right;
+    }
+
+    #char_counter.over_limit {
+        color: red;
+    }
 }
 
 .focus_shortcut {

@@ -69,6 +69,7 @@ class MainApp(App):
         )
 
         self._copy_button = Button("copy", variant="primary", id="copy_button")
+        self._char_counter = Label("0", id="char_counter")
 
     # ----------------------------------------------------------------------
     def compose(self) -> ComposeResult:  # noqa: D102
@@ -84,6 +85,7 @@ class MainApp(App):
             with Horizontal(id="commit_message"):
                 yield Label("[2]", classes="focus_shortcut")
                 yield self._commit_message_input
+                yield self._char_counter
                 yield self._copy_button
 
         with Horizontal(id="footer"):
@@ -96,6 +98,7 @@ class MainApp(App):
             self._commit_message_input.value = self._message
 
         self._copy_button.disabled = not bool(self._commit_message_input.value)
+        self._UpdateCharCounter()
 
         self._PopulateEmojis()
 
@@ -114,6 +117,7 @@ class MainApp(App):
         elif event.input.id == "text_input":
             self._copy_button.label = "copy"
             self._copy_button.disabled = not bool(self._commit_message_input.value)
+            self._UpdateCharCounter()
 
     # ----------------------------------------------------------------------
     def on_button_pressed(self, event: Button.Pressed) -> None:  # noqa: D102
@@ -158,6 +162,17 @@ class MainApp(App):
     def action_copy_commit_message(self) -> None:  # noqa: D102
         if self._commit_message_input.value:
             pyperclip.copy(self._commit_message_input.value)
+
+    # ----------------------------------------------------------------------
+    def _UpdateCharCounter(self) -> None:
+        char_count = len(self._commit_message_input.value)
+
+        self._char_counter.update(str(char_count))
+
+        if char_count > 70:  # noqa: PLR2004
+            self._char_counter.add_class("over_limit")
+        else:
+            self._char_counter.remove_class("over_limit")
 
     # ----------------------------------------------------------------------
     def _PopulateEmojis(self) -> None:
