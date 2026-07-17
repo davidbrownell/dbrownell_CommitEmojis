@@ -1,10 +1,19 @@
 import platform
+import time
 
 import pytest
 
 from textual.widgets import Button, Label
 
 from dbrownell_CommitEmojis.MainApp import MainApp
+
+
+# ----------------------------------------------------------------------
+async def _WaitFor(pilot, condition, timeout: float = 5.0) -> None:
+    """Pump the message loop until condition() is truthy or the timeout expires."""
+    deadline = time.monotonic() + timeout
+    while not condition() and time.monotonic() < deadline:
+        await pilot.pause(0.01)
 
 
 # ----------------------------------------------------------------------
@@ -94,7 +103,7 @@ async def test_CharCounterUpdates():
         assert str(char_counter.render()) == "0"
 
         app._commit_message_input.value = "test"
-        await pilot.pause()
+        await _WaitFor(pilot, lambda: str(char_counter.render()) == "4")
         assert str(char_counter.render()) == "4"
 
 
@@ -104,8 +113,8 @@ async def test_CharCounterWithInitialMessage():
     message = "Initial message"
     app = MainApp(message)
     async with app.run_test() as pilot:
-        await pilot.pause()
         char_counter = app.query_one("#char_counter", Label)
+        await _WaitFor(pilot, lambda: str(char_counter.render()) == str(len(message)))
         assert str(char_counter.render()) == str(len(message))
 
 
@@ -118,15 +127,15 @@ async def test_CharCounterOverLimit():
 
         # Under limit - no over_limit class
         app._commit_message_input.value = "x" * 70
-        await pilot.pause()
+        await _WaitFor(pilot, lambda: str(char_counter.render()) == "70")
         assert "over_limit" not in char_counter.classes
 
         # Over limit - has over_limit class
         app._commit_message_input.value = "x" * 71
-        await pilot.pause()
+        await _WaitFor(pilot, lambda: "over_limit" in char_counter.classes)
         assert "over_limit" in char_counter.classes
 
         # Back under limit - class removed
         app._commit_message_input.value = "x" * 50
-        await pilot.pause()
+        await _WaitFor(pilot, lambda: "over_limit" not in char_counter.classes)
         assert "over_limit" not in char_counter.classes
