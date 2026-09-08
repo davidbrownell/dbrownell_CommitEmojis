@@ -1,4 +1,7 @@
+import json
 import os
+
+from dataclasses import asdict
 
 import pytest
 
@@ -38,6 +41,23 @@ def test_Display(snapshot):
         assert output
     else:
         assert output == snapshot
+
+
+# ----------------------------------------------------------------------
+def test_DisplayJson():
+    console = Console(width=100)
+
+    with console.capture() as capture:
+        DisplayJson(console)
+
+    content = json.loads(capture.get())
+    emojis = CreateEmojis()
+
+    assert len(content) == len(emojis)
+
+    for category, (category_name, items) in zip(content, emojis.items(), strict=True):
+        assert category["category"] == category_name
+        assert category["items"] == [asdict(item) for item in items]
 
 
 # ----------------------------------------------------------------------

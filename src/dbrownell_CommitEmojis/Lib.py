@@ -5,7 +5,7 @@ import textwrap
 
 from collections.abc import Generator
 from contextlib import contextmanager
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from dbrownell_Common.Streams.DoneManager import DoneManager
@@ -171,6 +171,38 @@ def Display(
             console.print(Group("", table, ""))
 
         console.rule("This functionality uses emojis defined by [link=https://gitmoji.dev/]gitmoji[/]")
+
+
+# ----------------------------------------------------------------------
+def DisplayJson(
+    done_manager_or_console: DoneManager | Console,
+) -> None:
+    """Display supported emojis in json format."""
+
+    emojis = CreateEmojis()
+
+    content = json.dumps(
+        [
+            {
+                "category": category_name,
+                "items": [asdict(item) for item in items],
+            }
+            for category_name, items in emojis.items()
+        ],
+        indent=2,
+    )
+
+    with _YieldConsole(done_manager_or_console) as console:
+        # Write the content without any styling or wrapping so the output can be consumed by
+        # other tools. Note that emoji replacement must be disabled so that codes within the
+        # content (e.g. ":tada:") aren't converted into the emojis that they represent.
+        console.print(
+            content,
+            emoji=False,
+            markup=False,
+            highlight=False,
+            soft_wrap=True,
+        )
 
 
 # ----------------------------------------------------------------------

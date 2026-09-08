@@ -9,9 +9,15 @@ from typing import Annotated
 import typer
 
 from dbrownell_Common.Streams.DoneManager import DoneManager, Flags as DoneManagerFlags
+from rich.console import Console
 from typer.core import TyperGroup
 
-from dbrownell_CommitEmojis.Lib import Display as DisplayImpl, Transform as TransformImpl
+from dbrownell_CommitEmojis import __version__
+from dbrownell_CommitEmojis.Lib import (
+    Display as DisplayImpl,
+    DisplayJson as DisplayJsonImpl,
+    Transform as TransformImpl,
+)
 from dbrownell_CommitEmojis.MainApp import MainApp
 
 
@@ -32,10 +38,18 @@ app = typer.Typer(
 
 
 # ----------------------------------------------------------------------
+def _OnVersion(value: bool) -> None:  # noqa: FBT001
+    if value:
+        typer.echo(f"commit_emojis v{__version__}")
+        raise typer.Exit()
+
+
+# ----------------------------------------------------------------------
 class Command(Enum):
     """Enum values to invoke legacy functionality."""
 
     UX = "UX"
+    DisplayJson = "DisplayJson"
     LegacyDisplay = "Display"
     LegacyTransform = "Transform"
 
@@ -51,6 +65,14 @@ def EntryPoint(
         str,
         typer.Argument(..., help="Message to transform (or filename that contains the message)."),
     ] = "",
+    version: Annotated[  # noqa: ARG001, FBT002
+        bool,
+        typer.Option(
+            "--version",
+            callback=_OnVersion,
+            is_eager=True,
+        ),
+    ] = False,
     verbose: Annotated[  # noqa: FBT002
         bool,
         typer.Option("--verbose", help="Write verbose information to the terminal."),
@@ -61,6 +83,10 @@ def EntryPoint(
     ] = False,
 ) -> None:
     """Entry point for the application."""
+
+    if command == Command.DisplayJson:
+        _DisplayJson()
+        return
 
     if command == Command.LegacyDisplay:
         _Display(verbose=verbose, debug=debug)
@@ -88,6 +114,15 @@ def _Display(
         flags=DoneManagerFlags.Create(verbose=verbose, debug=debug),
     ) as dm:
         DisplayImpl(dm)
+
+
+# ----------------------------------------------------------------------
+def _DisplayJson() -> None:
+    """Display supported emojis in json format."""
+
+    # Write directly to stdout rather than using a DoneManager so the output isn't decorated
+    # with information that would prevent it from being parsed as json.
+    DisplayJsonImpl(Console(file=sys.stdout))
 
 
 # ----------------------------------------------------------------------
